@@ -10,8 +10,10 @@ import {
   Settings,
   HelpCircle,
   LogOut,
+  BarChart2,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
 
 interface SidebarProps {
   className?: string;
@@ -24,6 +26,7 @@ const Sidebar = ({ className = "" }: SidebarProps) => {
     { icon: ShoppingCart, label: "Point of Sale", path: "/pos" },
     { icon: Store, label: "Katalog Online", path: "/katalog" },
     { icon: Truck, label: "Pengiriman", path: "/pengiriman" },
+    { icon: BarChart2, label: "Laporan", path: "/laporan" },
   ];
 
   const bottomNavItems = [
@@ -65,6 +68,11 @@ const Sidebar = ({ className = "" }: SidebarProps) => {
             >
               <item.icon className="h-5 w-5" />
               <span>{item.label}</span>
+              {item.label === "Pengiriman" && (
+                <Badge className="ml-auto bg-red-100 text-red-800 border-0">
+                  3
+                </Badge>
+              )}
             </NavLink>
           ))}
         </nav>
